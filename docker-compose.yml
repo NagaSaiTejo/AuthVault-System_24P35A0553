@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  blockchain:
+    image: trufflesuite/ganache
+    command: --chain.chainId=31337
+    ports:
+      - "8545:8545"
+
+  deployer:
+    build: .
+    depends_on:
+      - blockchain
+    environment:
+      - HARDHAT_NETWORK=docker
