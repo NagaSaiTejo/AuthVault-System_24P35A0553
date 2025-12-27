@@ -8,8 +8,8 @@ services:
       - "8545:8545"
 
   deployer:
-    build: .
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
     depends_on:
       - blockchain
-    environment:
-      - HARDHAT_NETWORK=docker
